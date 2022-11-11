@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "noImplicitThis": true, // js/ts 混用时设为false
+    "baseUrl": "./",
+    "paths": {
+        "@/*": ["src/*"]
+    },
+    "types":["vite/client","node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "global.d.ts", "src/views/commonJs/deployExtendThing.js","typings/*.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

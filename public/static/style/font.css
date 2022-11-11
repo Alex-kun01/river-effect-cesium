@@ -1,0 +1,71 @@
+@font-face {
+    font-family: DINPro;
+    src: url("/static/font/DINPRO-REGULAR.OTF");
+}
+
+@font-face {
+    font-family: SourceHanSansCN-Light;
+    src: url("/static/font/SourceHanSansCN-Light.otf");
+}
+
+@font-face {
+    font-family: SourceHanSansCN-Bold;
+    src: url('/static/font/SourceHanSansCN-Bold.otf');
+}
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url('/static/font/SourceHanSansCN-Normal.otf');
+}
+
+@font-face {
+    font-family: SourceHanSansCN-Regular;
+    src: url('/static/font/SourceHanSansCN-Regular.otf');
+}
+
+@font-face {
+    font-family: DINPro-Light;
+    src: url('/static/font/DINPro-Light.otf');
+}
+
+@font-face {
+    font-family: DINPro-Medium;
+    src: url('/static/font/DINPro-Medium.otf');
+}
+
+@font-face {
+    font-family: ShiShangJianTi;
+    src: url("/static/font/FashionSimple.TTF");
+}
+
+@font-face {
+    font-family: SHSC-Medium;
+    src: url('/static/font/SourceHanSansCN-Medium_1.otf');
+}
+
+@font-face {
+    font-family: SHSC-Regular;
+    src: url('/static/font/SourceHanSansCN-Regular_1.otf');
+}
+
+@font-face {
+    font-family: DIN-Bold;
+    src: url('/static/font/DIN-Bold.otf');
+}
+
+@font-face {
+    font-family: DIN-Medium;
+    src: url('/static/font/DIN-Medium.otf');
+}
+@font-face {
+    font-family: YouSheBiaoTiHei;
+    src: url('/static/font/YouSheBiaoTiHeiNew.ttf');
+}
+@font-face {
+    font-family: ReeJi-BigRuixain;
+    src: url('/static/font/DMFT1555211323969.ttf');
+}
+@font-face {
+    font-family: PangMenZhengDao;
+    src: url("/static/font/PMZDBTT.TTF");
+}

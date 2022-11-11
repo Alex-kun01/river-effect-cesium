@@ -1,0 +1,11 @@
+## .gitlab-ci.yml
+stages:
+  - auto-run
+test-job:
+  stage: auto-run
+  only:
+    - master
+  tags:
+    - y-tag
+  script:
+    - curl -H "Tenant:ZJK" http://10.100.31.67:6809/devops/build?projectName=box-selection

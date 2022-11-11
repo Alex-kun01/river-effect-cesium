@@ -1,0 +1,29 @@
+{
+  "sourceFile": "D:\\素材库\\GisModel\\GisModel\\World\\Gradient\\PowerBoolen_19.max",
+  "gltfFiles": [
+    "74NMUZVTWRWN4HYU2OY0GWJOE102D7Z2O.gltf"
+  ],
+  "texFiles": {
+    "AR6C5TDNX9D6GF28M9T6GFW6O1D1YW2CT": ".bin",
+    "JURVP9N7CQ8ITH11XH1WY821PJDKYHZ2I": "渐变09.jpg",
+    "H01XQPW5H7VGREZC5OW6Q88UYOPUC7T2D": "噪波3.jpg",
+    "8PN5J2URT11VQH7KOON6C9NOGT80CTJ04": "噪波2_new_toMask.png",
+    "QT8RXHPNPT11CAWNGFWO23UCCHNW2E8OG": "zz02_new_toMask.png",
+    "T10DQ4QE86SX18QRX17IMEJUDA0IQ9D6O": "zz02_toMask.png",
+    "O8W4OJIPJN25WRU2OWNVEFD0IQ67Q1JOI": "噪波2_toMask.png"
+  },
+  "size": [
+    160.461,
+    160.461,
+    145.759
+  ],
+  "faces": 24064,
+  "verts": 18432,
+  "nodes": 3,
+  "createTime": "2020-03-20 12:42:22",
+  "author": "1854",
+  "computer": "DESKTOP-A1HSLA5",
+  "max": "#(22000, 55, 0, 22, 0, 0, 757, 2020, \"\")",
+  "version": "2.1",
+  "extensionsFile": "extensions.json"
+}

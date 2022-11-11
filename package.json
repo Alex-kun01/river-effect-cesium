@@ -1,0 +1,56 @@
+{
+  "name": "xxv-cli",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "set NODE_ENV=development && vite --open",
+    "dev": "vite",
+    "build": "set NODE_ENV=production && vite build",
+    "preview": "vite preview",
+    "lint:css": "stylelint **/*.{html,vue,css,sass,scss}"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.21",
+    "@types/store": "^2.0.2",
+    "@types/supercluster": "^7.1.0",
+    "ant-design-vue": "^3.0.0-beta.3",
+    "axios": "^0.26.0",
+    "lodash": "^4.17.21",
+    "pinia": "^2.0.11",
+    "store": "^2.0.12",
+    "supercluster": "^7.1.5",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.181",
+    "@types/node": "^17.0.25",
+    "@types/store": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/compiler-sfc": "^3.0.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.29.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-vue": "^7.11.1",
+    "sass": "^1.32.5",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.21.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vite-plugin-stylelint": "^1.0.1",
+    "vue-tsc": "^0.29.8"
+  },
+  "lint-staged": {
+    "*.{html,vue,css,sass,scss}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  }
+}
