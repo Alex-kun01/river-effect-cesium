@@ -2,7 +2,7 @@
  * @Author: 西南开发二组蒋治坤 jiangzhikun@uino.com
  * @Date: 2022-09-14 10:02:34
  * @LastEditors: 西南开发二组蒋治坤 jiangzhikun@uino.com
- * @LastEditTime: 2022-11-15 18:28:09
+ * @LastEditTime: 2022-11-17 18:34:18
  * @FilePath: \box-selection\src\views\Home.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,83 +12,76 @@
     </div>
 </template>
 
-<script>
+<script  lang='ts'>
 import { defineComponent } from 'vue';
+import sceneMain from '@/baseTi/utils/scene';
 import { loadScript } from '@/baseTi/utils/loadXxvFileCfg';
-import createRivers from './rivers/index.ts';
+import CameraView from '@/baseTi/utils/map/cameraView';
+import { useMainStore } from '../store';
+import initx from './rivers/index';
 
 export default defineComponent({
     name: '',
     components: {},
     data() {
         return {
+            mainStore: {},
+            mapInfo: {},
             center: [116.04451959795412, 40.32241166693724]
         };
     },
+    // 方法集合
     methods: {
-        // 初始化依赖
-        initRelyOn() {
-            const that = this;
-            loadScript('/static/2.0/thing.umd.min-V2.2.0.js', ()=>{
-                loadScript('/static/2.0/thing.earth.min-V2.2.0.js', ()=>{
-                    that.loadMap();
-                });
-            });
+        getlanlog(x: number, y:number) {
+            const screen = [x, y];
+            // 世界坐标
+            const world = CMAP.Util.convertWindowToWorld(screen);
+            // 经纬度
+            const lonlat = CMAP.Util.convertWorldToLonlat(world);
+            const target = {
+                screen,
+                world,
+                lonlat
+            };
+            console.log('jzk word', lonlat, target);
         },
-        // 初始化视角
-        initVisual() {
-            const that = this;
-            uino.app.camera.earthFlyTo({
-                lonlat: this.center,
-                height: 3000,
-                time: 1000,
-                complete: () => {
-                    that.initTerrain();
-                    that.initRivers();
-                }
-            });
-        },
-        // 加载地形
-        initTerrain() {
-            // 创建一个ThingLayer,并添加到地图
-            const thingLayer = new THING.EARTH.ThingLayer({
-                name: 'thingLayer01'
-            });
-            uino.map.addLayer(thingLayer);
-            uino.map.terrain.url = 'http://data.marsgis.cn/terrain';
-        },
-        // 初始化河流
-        initRivers() {
-            createRivers();
-        },
-        // 地图加载
         loadMap() {
             const that = this;
-            const app = new THING.App();
-            window.uino.app = app;
-            app.background = [0, 0, 0];
-            // 创建一个地图
-            const map = new THING.EARTH.Map({
-                attribution: '高德'
-            });
-            window.uino.map = map;
+            const mapIntance = new sceneMain.MapController({
+                container: 'div3d',
+                background: '#000',
+                openEarth: false,
+                scriptLoaded() {
+                    loadScript('/static/js/uearth.min.v1.7.8.23.js', ()=>{
+                        mapIntance.createMap({
+                            url: '/map/main/map.json',
+                            resourcePrefix: '/map/main',
+                            tileLayerUrl: '',
+                            mapLoaded() {
+                                window.uino.app.on('click', (e: any) => {
+                                    that.getlanlog(e.x, e.y);
+                                });
+                                that.setMapCamView();
+                                initx();
+                            }
+                        });
+                    });
+                }
 
-            app.on('click', (e) => {
-                console.log('jzk e', e);
             });
-            // 创建一个瓦片图层
-            const tileLayer1 = new THING.EARTH.TileLayer({
-                name: '卫星影像图层',
-                url: 'https://webst0{1,2,3,4}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}'
-            });
-            // 将瓦片图添加到底图图层中
-            map.addLayer(tileLayer1);
-            that.initVisual();
+            window.uino = mapIntance;
+        },
+        setMapCamView() {
+            this.mapInfo = new CameraView('高德地图-卫星');
         }
+    },
+    // 生命周期 - 创建完成（可以访问当前this实例）
+    created() {
+        this.mainStore = useMainStore();
     },
     // 生命周期 - 挂载完成（可以访问DOM元素）
     mounted() {
-        this.initRelyOn();
+        this.loadMap();
     }
 });
 </script>
